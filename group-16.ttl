@@ -1,0 +1,420 @@
+@prefix : <http://www.semanticweb.org/group-16/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/group-16/> .
+
+<http://www.semanticweb.org/group-16> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/group-16/admittedTo
+:admittedTo rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Students ;
+            rdfs:range :Programmes .
+
+
+###  http://www.semanticweb.org/group-16/courseHasDepartment
+:courseHasDepartment rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Courses ;
+                     rdfs:range :Departments .
+
+
+###  http://www.semanticweb.org/group-16/courseHasDivision
+:courseHasDivision rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Courses ;
+                   rdfs:range :Divisions .
+
+
+###  http://www.semanticweb.org/group-16/courseInstanceHour
+:courseInstanceHour rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :CourseInstances ;
+                    rdfs:range :Hours .
+
+
+###  http://www.semanticweb.org/group-16/courseOf
+:courseOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdf:type owl:SymmetricProperty ;
+          rdfs:domain :ProgrammeCourses ;
+          rdfs:range :Courses .
+
+
+###  http://www.semanticweb.org/group-16/courseOwnedByProg
+:courseOwnedByProg rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Courses ;
+                   rdfs:range :Programmes .
+
+
+###  http://www.semanticweb.org/group-16/directedBy
+:directedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Programmes ;
+            rdfs:range :SeniorTeachers .
+
+
+###  http://www.semanticweb.org/group-16/employedBy
+:employedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Employees ;
+            rdfs:range :Divisions .
+
+
+###  http://www.semanticweb.org/group-16/examinedBy
+:examinedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :CourseInstances ;
+            rdfs:range :SeniorTeachers .
+
+
+###  http://www.semanticweb.org/group-16/hasCourseInstance
+:hasCourseInstance rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Courses ;
+                   rdfs:range :CourseInstances .
+
+
+###  http://www.semanticweb.org/group-16/hasDepartment
+:hasDepartment rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Programmes ;
+               rdfs:range :Departments .
+
+
+###  http://www.semanticweb.org/group-16/hasDivisions
+:hasDivisions rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Departments ;
+              rdfs:range :Divisions .
+
+
+###  http://www.semanticweb.org/group-16/hasHours
+:hasHours rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Employees ;
+          rdfs:range :Hours .
+
+
+###  http://www.semanticweb.org/group-16/hasProgamme
+:hasProgamme rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :ProgrammeCourses ;
+             rdfs:range :Programmes .
+
+
+###  http://www.semanticweb.org/group-16/hasStudent
+:hasStudent rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:SymmetricProperty ;
+            rdfs:domain :CourseInstances ;
+            rdfs:range :Registrations .
+
+
+###  http://www.semanticweb.org/group-16/registrationStudent
+:registrationStudent rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Registrations ;
+                     rdfs:range :Students .
+
+
+###  http://www.semanticweb.org/group-16/teachingAssistantStudent
+:teachingAssistantStudent rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :TeachingAssistants ;
+                          rdfs:range :Students .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/group-16/academicYear
+:academicYear rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :ProgrammeCourses ;
+              rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/group-16/assignedHours
+:assignedHours rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Hours ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/group-16/courseCode
+:courseCode rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Courses ;
+            rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/courseName
+:courseName rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Courses ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/courseType
+:courseType rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Courses ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/credits
+:credits rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Courses ;
+         rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/group-16/depName
+:depName rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Departments ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/divName
+:divName rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Divisions ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/grade
+:grade rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Registrations ;
+       rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/graduated
+:graduated rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Students ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/group-16/instanceId
+:instanceId rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :CourseInstances ;
+            rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/level
+:level rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Courses ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Students ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/numStudents
+:numStudents rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :CourseInstances ;
+             rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/programmeCode
+:programmeCode rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :ProgrammeCourses ,
+                           :Programmes ;
+               rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/programmeName
+:programmeName rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Programmes ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/reportedHours
+:reportedHours rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Hours ;
+               rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/seniorHours
+:seniorHours rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :CourseInstances ;
+             rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/status
+:status rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Registrations ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/studentId
+:studentId rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Students ;
+           rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/studyPeriod
+:studyPeriod rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :CourseInstances ;
+             rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/group-16/studyYear
+:studyYear rdf:type owl:DatatypeProperty ;
+           rdfs:domain :ProgrammeCourses ;
+           rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/teacherAssistantHours
+:teacherAssistantHours rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :CourseInstances ;
+                       rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/group-16/teacherId
+:teacherId rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Employees ;
+           rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/group-16/teacherName
+:teacherName rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Employees ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/group-16/year
+:year rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Students ;
+      rdfs:range xsd:unsignedInt .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/group-16/CourseInstances
+:CourseInstances rdf:type owl:Class ;
+                 owl:disjointWith :Courses ,
+                                  :Departments ,
+                                  :Divisions ,
+                                  :Employees ,
+                                  :Hours ,
+                                  :ProgrammeCourses ,
+                                  :Programmes ,
+                                  :Registrations ,
+                                  :Students .
+
+
+###  http://www.semanticweb.org/group-16/Courses
+:Courses rdf:type owl:Class ;
+         owl:disjointWith :Departments ,
+                          :Divisions ,
+                          :Employees ,
+                          :Hours ,
+                          :ProgrammeCourses ,
+                          :Programmes ,
+                          :Registrations ,
+                          :Students .
+
+
+###  http://www.semanticweb.org/group-16/Departments
+:Departments rdf:type owl:Class ;
+             owl:disjointWith :Divisions ,
+                              :Employees ,
+                              :Hours ,
+                              :ProgrammeCourses ,
+                              :Programmes ,
+                              :Registrations ,
+                              :Students .
+
+
+###  http://www.semanticweb.org/group-16/Divisions
+:Divisions rdf:type owl:Class ;
+           owl:disjointWith :Employees ,
+                            :Hours ,
+                            :ProgrammeCourses ,
+                            :Programmes ,
+                            :Registrations ,
+                            :Students .
+
+
+###  http://www.semanticweb.org/group-16/Employees
+:Employees rdf:type owl:Class ;
+           owl:disjointWith :Hours ,
+                            :ProgrammeCourses ,
+                            :Programmes ,
+                            :Registrations ,
+                            :Students .
+
+
+###  http://www.semanticweb.org/group-16/Hours
+:Hours rdf:type owl:Class ;
+       owl:disjointWith :ProgrammeCourses ,
+                        :Programmes ,
+                        :Registrations ,
+                        :Students .
+
+
+###  http://www.semanticweb.org/group-16/ProgrammeCourses
+:ProgrammeCourses rdf:type owl:Class ;
+                  owl:disjointWith :Programmes ,
+                                   :Registrations ,
+                                   :Students .
+
+
+###  http://www.semanticweb.org/group-16/Programmes
+:Programmes rdf:type owl:Class ;
+            owl:disjointWith :Registrations ,
+                             :Students .
+
+
+###  http://www.semanticweb.org/group-16/Registrations
+:Registrations rdf:type owl:Class ;
+               owl:disjointWith :Students .
+
+
+###  http://www.semanticweb.org/group-16/SeniorTeachers
+:SeniorTeachers rdf:type owl:Class ;
+                rdfs:subClassOf :Employees .
+
+
+###  http://www.semanticweb.org/group-16/Students
+:Students rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/group-16/TeachingAssistants
+:TeachingAssistants rdf:type owl:Class ;
+                    rdfs:subClassOf :Employees .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
